@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //components
 import Accordian from "./components/Accordian";
@@ -27,9 +27,14 @@ const options = [
 ];
 
 export default () => {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
-      <Dropdown options={options} />
+      <Dropdown
+        selected={selected}
+        onSelectedChange={setSelected}
+        options={options}
+      />
     </div>
   );
 };
