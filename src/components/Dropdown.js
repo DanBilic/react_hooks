@@ -6,15 +6,23 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   //run function only once when the component renders, by passing [] as second paramter
   useEffect(() => {
-    document.body.addEventListener("click", (event) => {
+    const onBodyClick = (event) => {
       //ref.current contains div with class ui form
       //contains element belongs to all dom elements
       if (ref.current.contains(event.target)) {
+        //if the Dropdown component contains an event just return null and dont setOpen to false bescouse it was set to true within the dropdown div
         return;
       }
 
       setOpen(false);
-    });
+    };
+
+    document.body.addEventListener("click", onBodyClick);
+
+    //cleanup function => gets also called wehn the component gets removed from the dom
+    return () => {
+      document.body.removeEventListener("click", onBodyClick);
+    };
   }, []);
 
   const renderedOptions = options.map((option) => {
