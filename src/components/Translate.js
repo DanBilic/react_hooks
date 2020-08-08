@@ -1,5 +1,3 @@
-//API key: AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
-
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
 import Convert from "./Convert";
