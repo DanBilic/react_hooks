@@ -5,6 +5,7 @@ import Accordian from "./components/Accordian";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from ".//components/Translate";
+import Header from "./components/Header";
 
 //own routing component
 import Route from "./components/Route";
@@ -30,36 +31,13 @@ const options = [
   { label: "The color blue", value: "blue" },
 ];
 
-const showAccordian = () => {
-  if (window.location.pathname === "/") {
-    return <Accordian items={items} />;
-  }
-};
-
-const showList = () => {
-  if (window.location.pathname === "/list") {
-    return <Search />;
-  }
-};
-
-const showDropdown = () => {
-  if (window.location.pathname === "/dropdown") {
-    return <Dropdown />;
-  }
-};
-
-const showTranslate = () => {
-  if (window.location.pathname === "/translate") {
-    return <Translate />;
-  }
-};
-
 export default () => {
   //destructure out local state and update func and rename local state to selected and update function to setSelected
   const [selected, setSelected] = useState(options[0]);
 
   return (
     <div>
+      <Header />
       <Route path="/">
         <Accordian items={items} />
       </Route>
