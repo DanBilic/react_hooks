@@ -16,6 +16,9 @@ const Header = () => {
       <Link href="/translate" className="item">
         Translate
       </Link>
+      <Link href="/application" className="item">
+        Application
+      </Link>
     </div>
   );
 };

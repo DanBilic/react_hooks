@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import id from 'uuid/v4';
+//import id from "uuid/v4";
+import { v4 as uuidv4 } from "uuid";
 
-import Grudges from './Grudges';
-import NewGrudge from './NewGrudge';
+import Grudges from "./Grudges";
+import NewGrudge from "./NewGrudge";
 
-import initialState from './initialState';
+import initialState from "./initialState";
 
 const Application = () => {
   const [grudges, setGrudges] = useState(initialState);
 
-  const addGrudge = grudge => {
-    grudge.id = id();
+  const addGrudge = (grudge) => {
+    grudge.id = uuidv4();
     grudge.forgiven = false;
     setGrudges([grudge, ...grudges]);
   };
 
-  const toggleForgiveness = id => {
+  const toggleForgiveness = (id) => {
     setGrudges(
-      grudges.map(grudge => {
+      grudges.map((grudge) => {
         if (grudge.id !== id) return grudge;
         return { ...grudge, forgiven: !grudge.forgiven };
       })

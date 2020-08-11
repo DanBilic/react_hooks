@@ -7,6 +7,8 @@ import Dropdown from "./components/Dropdown";
 import Translate from ".//components/Translate";
 import Header from "./components/Header";
 
+import Application from "./components/useReducer/Application";
+
 //own routing component
 import Route from "./components/Route";
 
@@ -54,6 +56,9 @@ export default () => {
       </Route>
       <Route path="/translate">
         <Translate />
+      </Route>
+      <Route path="/application">
+        <Application />
       </Route>
     </div>
   );
